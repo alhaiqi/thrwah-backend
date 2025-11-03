@@ -1,0 +1,7 @@
+model Parent {
+  id        Int     @id @default(autoincrement())
+  personID  Int     @unique
+  number    Int     @unique
+  person    Person  @relation("PersonParent", fields: [personID], references: [id])
+  children  Child[]
+}

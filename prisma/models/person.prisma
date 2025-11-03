@@ -1,0 +1,11 @@
+model Person {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  accountID Int      @unique
+  account   Account  @relation(fields: [accountID], references: [id])
+  parent    Parent?  @relation("PersonParent")
+  child     Child?   @relation("PersonChild")
+}
+
